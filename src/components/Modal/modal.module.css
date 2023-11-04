@@ -1,0 +1,21 @@
+.boxModal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.textModal h2 {
+  font-family: var(--font-1);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.textModal ul li {
+  list-style: none;
+}
+
+.buttonModal {
+  background-color: var(--color-5);
+}

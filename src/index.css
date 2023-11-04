@@ -1,13 +1,48 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: Super;
+  src: url(./assets/fonts/Super\ Squad\ Italic.otf);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --color-1: #434343;
+  --color-2: #161616;
+  --color-3: #b1b1b1;
+  --color-4: #f21b54;
+  --color-5: #000000;
+
+  --text-1: #d1d1d1;
+  --text-2: #cacaca;
+  --text-3: #292929;
+  --text-4: #000000;
+
+  --font-1: Super;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
 }
