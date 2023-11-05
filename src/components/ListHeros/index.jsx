@@ -1,31 +1,38 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { HerosContext } from "../../context";
+import styles from "./listHeros.module.css";
 
-import {
-  List,
-  ListSubheader,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+
+import CardHero from "../CardHero";
 
 export default function ListHeros({ position }) {
-  const { heros, setCharacter, setCharacter2 } = useContext(HerosContext);
+  const {
+    heros,
+    setCharacter,
+    character,
+    powerCharacter1,
+    character2,
+    powerCharacter2,
+    setCharacter2,
+  } = useContext(HerosContext);
 
-  const [open, setOpen] = useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  function selectCharacter(position, item) {
+    if (position === 1) {
+      setCharacter(item);
+    } else {
+      setCharacter2(item);
+    }
+  }
 
   return (
-    <div>
+    <div className={styles.listHeros}>
       <input type="text" placeholder="Escolhar o primeiro personagem" />
       <List
+        className={styles.list}
         sx={{
           width: "100%",
-          maxWidth: 360,
-          bgcolor: "background.paper",
+          bgcolor: "background.dark",
           position: "relative",
           overflow: "auto",
           maxHeight: 300,
@@ -33,23 +40,21 @@ export default function ListHeros({ position }) {
         }}
       >
         {
-          <div>
-            <ListSubheader>Lista de personagens</ListSubheader>
+          <>
             {heros.map((item) => (
               <ListItem>
-                <ListItemButton
-                  onClick={
-                    position === 1 ? setCharacter(item) : setCharacter2(item)
-                  }
-                >
+                <ListItemButton onClick={() => selectCharacter(position, item)}>
                   <ListItemText primary={item.name} />
                   <img src={item.images.xs} alt={item.name} />
                 </ListItemButton>
               </ListItem>
             ))}
-          </div>
+          </>
         }
       </List>
+      {position === 1 && character.id && <CardHero hero={1} />}
+      {position === 2 && character2.id && <CardHero hero={2} />}
+      {/* {position === 1 ? <CardHero hero={1} /> : <CardHero hero={2} />} */}
     </div>
   );
 }

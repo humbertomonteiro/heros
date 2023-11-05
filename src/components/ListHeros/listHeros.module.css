@@ -1,0 +1,33 @@
+.listHeros {
+  width: 50%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.listHeros input {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid var(--text-2);
+  margin-bottom: 1rem;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.list {
+  background-color: var(--color-3);
+  border-radius: 10px;
+  max-height: 400px;
+}
+
+@media (max-width: 480px) {
+  .listHeros {
+    max-height: 350px;
+  }
+}

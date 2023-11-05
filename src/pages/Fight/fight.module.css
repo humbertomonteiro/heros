@@ -1,24 +1,33 @@
 .container {
   width: 100%;
-}
-
-.header {
-  margin: 2rem 20px 3rem 20px;
-}
-
-.header h1 {
-  font-family: var(--font-1);
-  color: var(--text-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
 }
 
 .containerFight {
-  width: 100%;
+  max-width: 800px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
 
-.containerFight strong {
-  font-family: var(--font-1);
-  font-size: 2rem;
+.buttonBox {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.button {
+  background-color: var(--color-4);
+}
+
+@media (max-width: 1000px) {
+  .header {
+    margin: 1rem;
+    margin-bottom: 0.5rem;
+  }
 }

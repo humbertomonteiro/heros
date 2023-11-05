@@ -5,7 +5,6 @@
   padding-bottom: 100px;
   width: 100%;
   min-height: 100vh;
-  /* background: var(--color-5); */
   overflow-y: scroll;
 }
 
@@ -36,9 +35,6 @@
   height: 40px;
   color: var(--text-2);
 }
-/* .header input {
-  color: var(--color-3);
-} */
 
 .boxes {
   display: flex;
@@ -73,9 +69,3 @@
     width: 45%;
   }
 }
-
-/* @media (max-width: 480px) {
-  .box {
-    min-width: 45%;
-  }
-} */
