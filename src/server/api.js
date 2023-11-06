@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://homologacao3.azapfy.com.br/api/ps/metahumans";
+const URL = "/api";
 
 const api = axios.create({
   baseURL: URL,
