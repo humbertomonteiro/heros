@@ -1,6 +1,7 @@
-import { Box, Modal } from "@mui/material";
+import styles from "./modalWinner.module.css";
+import { Box, Modal, Button } from "@mui/material";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { HerosContext } from "../../context";
 
 const style = {
@@ -10,7 +11,6 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: "500px",
   maxWidth: "90%",
-  bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   pt: 2,
@@ -19,27 +19,28 @@ const style = {
 };
 
 export default function ModalWinner({ open, setOpen, winner }) {
-  const { character, character2 } = useContext(HerosContext);
+  const { setCharacter, setCharacter2 } = useContext(HerosContext);
 
-  function handleClose() {
+  function handleNewBattle() {
+    setCharacter({});
+    setCharacter2({});
     setOpen(false);
   }
-
-  // function handleOpen() {
-  //   setOpen(false);
-  // }
 
   return (
     <Modal
       open={open}
-      onClose={handleClose}
+      onClose={handleNewBattle}
       aria-labelledby="parent-modal-title"
       aria-describedby="parent-modal-description"
     >
-      <Box sx={{ ...style }}>
+      <Box sx={{ ...style }} className={styles.modal}>
         <h1>Vencedor</h1>
         <img src={winner?.images?.md} alt={winner.name} />
         <h2>{winner?.name}</h2>
+        <Button onClick={handleNewBattle} variant="contained">
+          Voltar
+        </Button>
       </Box>
     </Modal>
   );

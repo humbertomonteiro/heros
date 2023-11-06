@@ -3,13 +3,18 @@
   left: 10px;
   right: 10px;
   top: 0;
-  background-color: var(--color-3);
-  height: 70vh;
+  background: rgb(131, 131, 131);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 131, 131, 1) 12%,
+    rgba(228, 228, 228, 1) 100%
+  );
+  height: 420px;
   border-radius: 10px;
 }
 
 .cardHero {
-  padding: 10px;
+  padding: 10px 10px 30px 10px;
   border-radius: 10px;
   position: relative;
   max-height: 100vh;
@@ -82,7 +87,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   row-gap: 10px;
-  background-color: var(--color-3);
+  margin-top: 10px;
 }
 
 .powerStats li {
@@ -101,7 +106,7 @@
 
 .nameHero {
   font-family: var(--font-1);
-  margin-top: 10px;
+  padding: 10px;
 }
 
 .nameHero h2 {
@@ -110,7 +115,11 @@
 
 @media (max-width: 500px) {
   .container {
-    height: 55vh;
+    height: 350px;
+  }
+
+  .cardHero {
+    padding: 10px;
   }
 
   .close,
@@ -121,5 +130,15 @@
 
   .boxImg {
     height: 65%;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    height: 250px;
+  }
+
+  .boxImg {
+    height: 50%;
   }
 }

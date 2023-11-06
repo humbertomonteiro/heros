@@ -26,7 +26,7 @@ export default function ModalHero({ open, handleClose, hero }) {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style }}>
+        <Box sx={{ ...style }} className={styles.modal}>
           <div className={styles.boxModal}>
             <img src={hero?.images?.sm} alt={hero.name} />
             <div className={styles.textModal}>
