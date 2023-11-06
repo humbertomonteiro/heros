@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import api from "../api/server";
+import { api } from "../server/api";
 
 export const HerosContext = createContext({});
 
@@ -49,8 +49,9 @@ export default function HerosProvider({ children }) {
           localStorage.setItem("@heros-data", JSON.stringify(response.data));
         } catch (error) {
           console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
+          // console.log(error.response.status);
+          // console.log(error.response.headers);
+          // console.log(error);
         }
       }
     }

@@ -42,7 +42,7 @@ export default function ListHeros({ position }) {
         {
           <>
             {heros.map((item) => (
-              <ListItem>
+              <ListItem key={item.id}>
                 <ListItemButton onClick={() => selectCharacter(position, item)}>
                   <ListItemText primary={item.name} />
                   <img src={item.images.xs} alt={item.name} />

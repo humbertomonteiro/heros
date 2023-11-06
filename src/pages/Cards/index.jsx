@@ -40,7 +40,6 @@ export default function Cards() {
   const handleOpen = (item) => {
     setOpen(true);
     setHero(item);
-    console.log(item);
   };
 
   const handleClose = () => {
