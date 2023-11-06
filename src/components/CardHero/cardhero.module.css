@@ -10,12 +10,12 @@
     rgba(228, 228, 228, 1) 100%
   );
   height: fit-content;
-  max-height: 82vh;
+  /* max-height: 82vh; */
   border-radius: 10px;
 }
 
 .cardHero {
-  padding: 10px 10px 30px 10px;
+  padding: 10px;
   border-radius: 10px;
   position: relative;
 }
@@ -128,7 +128,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 350px) {
   .boxImg {
     height: 50%;
   }

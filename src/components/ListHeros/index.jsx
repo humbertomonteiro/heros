@@ -1,21 +1,19 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { HerosContext } from "../../context";
 import styles from "./listHeros.module.css";
 
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 
+import { BiSearch } from "react-icons/bi";
+
 import CardHero from "../CardHero";
 
 export default function ListHeros({ position }) {
-  const {
-    heros,
-    setCharacter,
-    character,
-    powerCharacter1,
-    character2,
-    powerCharacter2,
-    setCharacter2,
-  } = useContext(HerosContext);
+  const { heros, setCharacter, character, character2, setCharacter2 } =
+    useContext(HerosContext);
+
+  const filterHero = useRef(null);
+  const [filter, setFilter] = useState("");
 
   function selectCharacter(position, item) {
     if (position === 1) {
@@ -25,9 +23,24 @@ export default function ListHeros({ position }) {
     }
   }
 
+  function formFilter(event) {
+    event.preventDefault();
+
+    setFilter(filterHero?.current?.value);
+  }
+
   return (
     <div className={styles.listHeros}>
-      <input type="text" placeholder="Escolhar o primeiro personagem" />
+      <form onSubmit={formFilter}>
+        <input
+          type="text"
+          placeholder="Escolhar o primeiro personagem"
+          ref={filterHero}
+        />
+        <button>
+          <BiSearch />
+        </button>
+      </form>
       <List
         className={styles.list}
         sx={{
@@ -35,20 +48,29 @@ export default function ListHeros({ position }) {
           bgcolor: "background.dark",
           position: "relative",
           overflow: "auto",
-          maxHeight: 300,
           "& ul": { padding: 0 },
         }}
       >
         {
           <>
-            {heros.map((item) => (
-              <ListItem key={item.id}>
-                <ListItemButton onClick={() => selectCharacter(position, item)}>
-                  <ListItemText primary={item.name} />
-                  <img src={item.images.xs} alt={item.name} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+            {heros
+              .filter((item) => {
+                let text = item.name;
+
+                let textUpper = text.toUpperCase();
+
+                return textUpper.includes(filter.toUpperCase());
+              })
+              .map((item) => (
+                <ListItem key={item.id}>
+                  <ListItemButton
+                    onClick={() => selectCharacter(position, item)}
+                  >
+                    <ListItemText primary={item.name} />
+                    <img src={item.images.xs} alt={item.name} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
           </>
         }
       </List>

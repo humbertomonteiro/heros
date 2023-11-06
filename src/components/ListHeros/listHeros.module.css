@@ -1,6 +1,7 @@
 .listHeros {
   width: 50%;
   max-width: 300px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,14 +11,32 @@
   border-radius: 10px;
 }
 
-.listHeros input {
-  background-color: transparent;
+.listHeros form {
+  width: 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.listHeros form button,
+.listHeros form input {
+  height: 30px;
   border-radius: 10px;
   border: 1px solid var(--text-2);
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listHeros form input {
+  width: 80%;
+  background-color: transparent;
   padding: 10px;
-  width: 100%;
-  max-width: 300px;
+}
+
+.listHeros form button {
+  width: 15%;
+  background-color: var(--color-3);
 }
 
 .list {
@@ -28,17 +47,20 @@
     rgba(228, 228, 228, 1) 100%
   );
   border-radius: 10px;
-  max-height: 400px;
 }
 
 @media (max-width: 480px) {
   .listHeros {
-    max-height: 400px;
+    max-height: 350px;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 350px) {
   .listHeros {
     max-height: 250px;
+  }
+
+  .listHeros input {
+    padding: 5px 10px;
   }
 }

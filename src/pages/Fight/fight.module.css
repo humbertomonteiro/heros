@@ -16,7 +16,7 @@
   max-width: 800px;
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .button {
@@ -27,5 +27,11 @@
   .header {
     margin: 1rem;
     margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .buttonBox {
+    margin-top: 4rem;
   }
 }
