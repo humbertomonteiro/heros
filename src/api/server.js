@@ -1,7 +1,8 @@
 import axios from "axios";
+const url = "http://homologacao3.azapfy.com.br/api/ps/metahumans";
 
 const api = axios.create({
-  baseURL: "http://homologacao3.azapfy.com.br/api/ps/metahumans",
+  baseURL: url,
 });
 
 export default api;
