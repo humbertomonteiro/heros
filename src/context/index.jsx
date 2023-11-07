@@ -42,10 +42,9 @@ export default function HerosProvider({ children }) {
 
         setHeros(dataParse);
       } else {
-        const URL =
-          "https://cors-anywhere.herokuapp.com/http://homologacao3.azapfy.com.br/api/ps/metahumans";
+        const URL = "http://homologacao3.azapfy.com.br/api/ps/metahumans";
         fetch(URL, {
-          referrerPolicy: "unsafe_url" 
+          referrerPolicy: "unsafe-url",
         })
           .then((response) => response.json())
           .then((data) => setHeros(data));
