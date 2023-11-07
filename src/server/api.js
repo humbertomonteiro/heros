@@ -1,9 +1,10 @@
-// import axios from "axios";
+import axios from "axios";
 
-// const URL = "http://homologacao3.azapfy.com.br/api/ps/metahumans";
+const url = "http://homologacao3.azapfy.com.br/api/ps/metahumans";
+const httpsUrl = url.replace("/^http:/", "https:");
 
-// const api = axios.create({
-//   baseURL: URL,
-// });
+const api = axios.create({
+  baseURL: httpsUrl,
+});
 
-// export { api };
+export { api };
