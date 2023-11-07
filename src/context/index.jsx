@@ -44,7 +44,9 @@ export default function HerosProvider({ children }) {
       } else {
         const URL =
           "https://cors-anywhere.herokuapp.com/http://homologacao3.azapfy.com.br/api/ps/metahumans";
-        fetch(URL)
+        fetch(URL, {
+          referrerPolicy: "unsafe_url" 
+        })
           .then((response) => response.json())
           .then((data) => setHeros(data));
         // try {
