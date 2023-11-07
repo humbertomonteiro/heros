@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import { api } from "../server/api";
+// import { api } from "../server/api";
 
 export const HerosContext = createContext({});
 
@@ -42,17 +42,20 @@ export default function HerosProvider({ children }) {
 
         setHeros(dataParse);
       } else {
-        try {
-          const response = await api.get();
+        fetch("http://homologacao3.azapfy.com.br/api/ps/metahumans")
+          .then((response) => response.json())
+          .then((data) => setHeros(data));
+        // try {
+        //   const response = await api.get();
 
-          setHeros(response.data);
-          localStorage.setItem("@heros-data", JSON.stringify(response.data));
-        } catch (error) {
-          // console.log(error.response.data);
-          console.log(error.response.status);
-          // console.log(error.response.headers);
-          // console.log(error);
-        }
+        //   setHeros(response.data);
+        //   localStorage.setItem("@heros-data", JSON.stringify(response.data));
+        // } catch (error) {
+        //   // console.log(error.response.data);
+        //   console.log(error.response.status);
+        //   // console.log(error.response.headers);
+        //   // console.log(error);
+        // }
       }
     }
 
